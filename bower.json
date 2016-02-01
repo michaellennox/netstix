@@ -1,0 +1,29 @@
+{
+  "name": "netstix",
+  "description": "achievement application",
+  "main": "",
+  "authors": [
+    "michaellennox",
+    "trbradley",
+    "htunny",
+    "giamir"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "bootstrap": "^3.3.6",
+    "angular": "^1.4.9",
+    "angular-resource": "^1.4.9",
+    "angular-route": "^1.4.9",
+    "angular-mocks": "^1.4.9"
+  }
+}

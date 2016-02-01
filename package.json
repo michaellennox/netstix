@@ -1,0 +1,49 @@
+{
+  "name": "netstix",
+  "version": "0.0.0",
+  "description": "achievement application",
+  "scripts": {
+    "start": "node ./config/env/www",
+    "start-dev": "nodemon --debug ./config/env/dev",
+    "start-test": "nodemon --debug ./config/env/test",
+    "test": "",
+    "test-protractor": "protractor test/integration/config.js",
+    "test-karma": "karma start test/front_end/karma.conf.js",
+    "test-api": "jasmine magic"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/michaellennox/netstix.git"
+  },
+  "author": "michaellennox, trbradley, htunny, giamir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaellennox/netstix/issues"
+  },
+  "homepage": "https://github.com/michaellennox/netstix#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "bower": "^1.7.7",
+    "cookie-parser": "^1.4.1",
+    "debug": "^2.2.0",
+    "express": "^4.13.4",
+    "grunt": "^0.4.5",
+    "kerberos": "0.0.18",
+    "mongoose": "^4.3.7",
+    "morgan": "^1.6.1"
+  },
+  "devDependencies": {
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.19",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.7",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-spec-reporter": "0.0.23",
+    "nodemon": "^1.8.1",
+    "phantomjs": "^2.1.3",
+    "phantomjs-prebuilt": "^2.1.3",
+    "protractor": "^3.0.0",
+    "protractor-http-mock": "^0.2.1",
+    "webdriver-manager": "^8.0.0"
+  }
+}
