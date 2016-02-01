@@ -9,7 +9,7 @@
     "test": "",
     "test-protractor": "protractor test/integration/config.js",
     "test-karma": "karma start test/front_end/karma.conf.js",
-    "test-api": "jasmine magic"
+    "test-jasmine": "jasmine"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "morgan": "^1.6.1"
   },
   "devDependencies": {
+    "jasmine": "^2.4.1",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.19",
     "karma-chrome-launcher": "^0.2.2",
