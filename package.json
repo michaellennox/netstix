@@ -7,8 +7,8 @@
     "start-dev": "nodemon --debug ./config/env/dev",
     "start-test": "nodemon --debug ./config/env/test",
     "test": "",
-    "test-protractor": "protractor test/integration/config.js",
-    "test-karma": "karma start test/front_end/karma.conf.js",
+    "test-protractor": "grunt e2e",
+    "test-karma": "grunt karma",
     "test-jasmine": "jasmine",
     "postinstall": "bower install"
   },
