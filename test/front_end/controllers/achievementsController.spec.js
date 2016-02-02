@@ -1,5 +1,5 @@
 describe('AchievementsController', function() {
-  var data = {
+  var response = {
     data: [{ title: 'codewars', criteria: '150pts on codewars' }]
   };
   var ctrl;
@@ -14,15 +14,14 @@ describe('AchievementsController', function() {
   });
 
   beforeEach(inject(function($controller, $q, $rootScope) {
-    GetAchievementsFactoryMock.getData.and.returnValue($q.when(data));
+    GetAchievementsFactoryMock.getData.and.returnValue($q.when(response));
     ctrl = $controller('AchievementsController');
     scope = $rootScope;
   }));
 
   it('initializes with achievements from the GetAchievements Factory', function() {
-    ctrl.init();
     scope.$digest();
     expect(ctrl.achievements)
-      .toEqual([{ title: 'codewars', criteria: '150pts on codewars' }]);
+      .toEqual(response.data);
   });
 });
