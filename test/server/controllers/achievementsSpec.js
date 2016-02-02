@@ -1,10 +1,10 @@
 var frisby = require('frisby');
 var mongoose = require('mongoose');
 
-var URL = 'http://localhost:8080/';
+var URL = 'http://localhost:8080/achievements/';
 
 frisby.create('api call to add an achievement, read the list of achievements, then view the specific achievement')
-  .post(URL + 'achievements', {
+  .post(URL, {
     title:     'Bug Hunter',
     criteria:  'Find an error in the Makers Academy materials'
   })
@@ -12,7 +12,7 @@ frisby.create('api call to add an achievement, read the list of achievements, th
 
   .after(function() {
     frisby.create('view list of achievements')
-      .get(URL + 'achievements')
+      .get(URL)
       .expectStatus(200)
       .expectHeaderContains('content-type', 'application/json; charset=utf-8')
       .expectJSON('?', {
@@ -23,7 +23,7 @@ frisby.create('api call to add an achievement, read the list of achievements, th
       .afterJSON(function(achievements) {
         var achievement = achievements[0];
         frisby.create('view individual achievement')
-          .get(URL + 'achievements/' + achievement._id)
+          .get(URL + achievement._id)
           .expectStatus(200)
           .expectHeaderContains('content-type', 'application/json; charset=utf-8')
           .expectJSON({
