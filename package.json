@@ -10,7 +10,7 @@
     "update-webdriver": "./node_modules/protractor/bin/webdriver-manager update --standalone --chrome",
     "test-protractor": "npm run update-webdriver && grunt e2e",
     "test-karma": "grunt karma",
-    "test-jasmine": "jasmine",
+    "test-jasmine": "jasmine JASMINE_CONFIG_PATH=test/server/support/jasmine.json",
     "postinstall": "bower install"
   },
   "repository": {
