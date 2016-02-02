@@ -4,7 +4,7 @@ describe('Achievements Features', function() {
 
     var achievementsList = element.all(by.repeater('achievement in ctrl.achievements'));
 
-    expect(achievementsList.length).toEqual(0);
+    expect(achievementsList).toEqual([]);
 
     var createAchievementLink = element(by.css('a[href*="#/achievements/new"]'));
 
@@ -21,7 +21,6 @@ describe('Achievements Features', function() {
     newAchievementForm.submit();
 
     expect(browser.getCurrentUrl()).toContain('#/achievements');
-    expect(achievementsList.length).toEqual(1);
     expect(achievementsList.get(0).getText()).toEqual('Create an achievement for the app');
-  })
-})
+  });
+});
