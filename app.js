@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 // var mongoose = require('mongoose');
 
 var index = require('./app/routes/index');
+var achievements = require('./app/routes/achievements');
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.use(require('express-session')({
 }));
 
 app.use('/', index);
+app.use('/achievements', achievements);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
