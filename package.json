@@ -42,7 +42,7 @@
     "grunt-protractor-webdriver": "^0.2.5",
     "jasmine": "^2.4.1",
     "jasmine-core": "^2.4.1",
-    "jasmine-spec-reporter": "^2.4.0",
+    "jasmine-spec-reporter": "^1.2.0",
     "karma": "^0.13.19",
     "karma-chrome-launcher": "^0.2.2",
     "karma-coverage": "^0.5.3",
