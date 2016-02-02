@@ -6,6 +6,12 @@ beforeEach(function() {
   });
 });
 
+afterEach(function() {
+  mongoose.connect('mongodb://localhost/makers-achievements-test', function() {
+    mongoose.connection.db.dropDatabase();
+  });
+});
+
 describe('Achievements Features', function() {
   it('a user is able to create a new achievement', function() {
     browser.get('http://localhost:8080/#/achievements');
