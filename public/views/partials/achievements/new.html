@@ -1,14 +1,14 @@
 <div class="container" ng-controller="NewAchievementController as ctrl">
     <h2>Create new achievement</h2>
     <div ng-show="error" class="alert alert-danger"></div>
-    <form class="form">
+    <form class="form" ng-submit="ctrl.createNewAchievement()">
       <div class="form-group">
         <label>Title</label>
-        <input type="text" class="form-control" name="title" required>
+        <input type="text" class="form-control" name="title" ng-model="ctrl.title" required>
       </div>
       <div class="form-group">
         <label>Criteria</label>
-          <input type="text" class="form-control" name="criteria" required>
+          <input type="text" class="form-control" name="criteria" ng-model="ctrl.criteria" required>
         </div>
         <div>
           <button type="submit" class="btn btn-default" ng-disabled="disabled">Create</button>

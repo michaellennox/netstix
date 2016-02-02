@@ -1,5 +1,6 @@
 describe('factory: PostAchievements', function() {
   var postAchievements;
+  var scope;
 
   beforeEach(module('Netstix'));
 
@@ -7,11 +8,12 @@ describe('factory: PostAchievements', function() {
      postAchievements = PostAchievements;
   }));
 
-  beforeEach(inject(function($httpBackend) {
+  beforeEach(inject(function($httpBackend, $rootScope) {
       httpBackend = $httpBackend;
-      httpBackend.whenPOST('/achievements/').respond(function(){
+      httpBackend.whenPOST('/achievements').respond(function(){
         return [200, { message: 'Achievement created!'}, {}];
       });
+      scope = $rootScope;
   }));
 
   afterEach(function() {
@@ -22,8 +24,8 @@ describe('factory: PostAchievements', function() {
   describe('#sendData', function() {
     it('returns a success message if the achievement has been created', function() {
       postAchievements.sendData('a title', 'a criteria')
-        .then(function(response) {
-          expect(response.data.message).toEqual('Achievement created!');
+        .then(function(data) {
+          expect(data.message).toEqual('Achievement created!');
         });
       httpBackend.flush();
     });
