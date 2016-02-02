@@ -10,10 +10,20 @@ var http = require('http');
 var mongoose = require('mongoose');
 
 /**
- * Get port from environment and store in Express.
+ * Connect to MongoDB
  */
 
-// mongoose config
+mongoose.connect('mongodb://localhost/makers-achievements-test', function(err, res) {
+  if(err) {
+    console.log('Error connecting to the database. ' + err);
+  } else {
+    console.log('Connected to Database: ' + 'mongodb://localhost/makers-achievements-test');
+  }
+});
+
+/**
+ * Get port from environment and store in Express.
+ */
 
 var port = normalizePort(process.env.PORT || '8080');
 app.set('port', port);
