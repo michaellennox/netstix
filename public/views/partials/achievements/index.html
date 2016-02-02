@@ -1,0 +1,9 @@
+<div class="container" ng-controller="AchievementsController as ctrl">
+  <p><a href="#/achievements/new" class="pull-right">Create a new achievement</a></p>
+  <h1>Achievements</h1>
+  <ul class="items-result list-group" ng-show="ctrl.achievements.length">
+    <li class="list-group-item" ng-repeat="achievement in ctrl.achievements">
+      <h3><a href="#/achievements/{{achievement._id}}">{{achievement.title}}</a></h3>
+    </li>
+  </ul>
+</div>
