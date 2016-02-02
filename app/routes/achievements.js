@@ -24,4 +24,13 @@ router.post('/', function(req, res) {
   });
 });
 
+router.get('/:id', function(req, res) {
+  Achievement.findById(req.params.id, function(err, achievement) {
+    if(err) {
+      res.send(err);
+    }
+    res.json(achievement)
+  });
+});
+
 module.exports = router;
