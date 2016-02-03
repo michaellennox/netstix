@@ -18,11 +18,9 @@ describe('User Authentication', function() {
 
     var signUpLink = element(by.css('a[href*="#/register"]'));
     var signInLink = element(by.css('a[href*="#/login"]'));
-    var signOutButton = element();
 
     expect(signUpLink.isDisplayed()).toBeTruthy();
     expect(signInLink.isDisplayed()).toBeTruthy();
-    expect(signOutButton.isDisplayed()).toBeFalsy();
 
     signUpLink.click();
 
@@ -39,15 +37,14 @@ describe('User Authentication', function() {
     expect(browser.getCurrentUrl()).toContain('#/achievements');
     expect(signUpLink.isDisplayed()).toBeFalsy();
     expect(signInLink.isDisplayed()).toBeFalsy();
-    expect(signOutButton.isDisplayed()).toBeTruthy();
 
+    var usernameDropdown = element(by.css('.dropdown-toggle'));
+    var signOutButton = element(by.css('.btn-logout'));
+
+    usernameDropdown.click();
     signOutButton.click();
 
-    var statusNotification = element(by.css('.alert-success'));
-
-    expect(statusNotification.getText()).toEqual('Signed out successfully!');
     expect(browser.getCurrentUrl()).toContain('#/achievements');
-    expect(signOutButton.isDisplayed()).toBeFalsy();
 
     signInLink.click();
 
@@ -59,9 +56,8 @@ describe('User Authentication', function() {
     passwordInput.sendKeys('epicpassword');
     signInForm.submit();
 
-    expect(browser.getCurrentUrl()).toContain('#/register');
+    expect(browser.getCurrentUrl()).toContain('#/achievements');
     expect(signUpLink.isDisplayed()).toBeFalsy();
     expect(signInLink.isDisplayed()).toBeFalsy();
-    expect(signOutButton.isDisplayed()).toBeTruthy();
   });
 });
