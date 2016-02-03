@@ -1,4 +1,4 @@
-netstix.controller('AchievementController', ['GetAchievement', '$routeParams', function(GetAchievement, $routeParams) {
+netstix.controller('AchievementController', ['GetAchievement', 'UserAuth', '$routeParams', function(GetAchievement, UserAuth, $routeParams) {
   var self = this;
   self.id = $routeParams.id;
 
@@ -7,6 +7,10 @@ netstix.controller('AchievementController', ['GetAchievement', '$routeParams', f
      .then(function(response) {
        self.achievement = response.data;
      });
+  };
+
+  self.isLoggedIn = function() {
+    return UserAuth.isLoggedIn();
   };
 
   self.init();

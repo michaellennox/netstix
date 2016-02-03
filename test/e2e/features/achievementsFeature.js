@@ -16,6 +16,18 @@ describe('Achievements Features', function() {
   it('a user can create an achievement, view a list of achievements then view a specific achievement', function() {
     browser.get('http://localhost:8080/#/achievements');
 
+    var signUpLink = element(by.css('a[href*="#/register"]'));
+
+    signUpLink.click();
+
+    var usernameInput = element(by.css('input[name="username"]'));
+    var passwordInput = element(by.css('input[name="password"]'));
+    var signUpForm = element(by.css('form'));
+
+    usernameInput.sendKeys('test user');
+    passwordInput.sendKeys('epicpassword');
+    signUpForm.submit();
+
     var achievementsList = element.all(by.repeater('achievement in ctrl.achievements'));
 
     expect(achievementsList.count()).toEqual(0);
