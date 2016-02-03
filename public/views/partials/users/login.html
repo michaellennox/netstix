@@ -1,6 +1,8 @@
 <div class="col-md-4" ng-controller="LoginController as ctrl">
   <h1>Login</h2>
-  <div ng-show="ctrl.login.errorMessage" class="alert alert-danger"></div>
+  <div ng-show="error" class="alert alert-danger">
+    {{errorMessage}}
+  </div>
   <form class="form" ng-submit="ctrl.login()">
     <div class="form-group">
       <label>Username</label>

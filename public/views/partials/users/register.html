@@ -1,6 +1,8 @@
 <div class="col-md-4" ng-controller="RegisterController as ctrl">
   <h1>Register</h2>
-  <div ng-show="error" class="alert alert-danger"></div>
+  <div ng-show="error" class="alert alert-danger">
+    {{errorMessage}}
+  </div>
   <form class="form" ng-submit="ctrl.register()">
     <div class="form-group">
       <label>Username</label>
