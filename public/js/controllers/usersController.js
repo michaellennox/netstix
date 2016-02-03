@@ -1,8 +1,8 @@
-netstix.controller('UsersController', ['GetUsers', function(GetUsers) {
+netstix.controller('UsersController', ['UsersResource', function(UsersResource) {
   var self = this;
 
   self.init = function() {
-    GetUsers.getData()
+    UsersResource.getData()
      .then(function(response) {
        self.users = response.data;
      });

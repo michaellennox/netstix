@@ -19,6 +19,9 @@ netstix.config(['$routeProvider',
         templateUrl: '../views/partials/users/login.html'})
       .when('/register', {
         templateUrl: '../views/partials/users/register.html'})
+      .when('/users/:id', {
+        templateUrl: '../views/partials/users/user.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
