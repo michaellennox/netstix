@@ -10,7 +10,8 @@
     "update-webdriver": "./node_modules/protractor/bin/webdriver-manager update --standalone --chrome",
     "test-protractor": "npm run update-webdriver && protractor test/e2e/conf.js",
     "test-karma": "grunt karma",
-    "test-jasmine": "jasmine-node test/server",
+    "test-jasmine": "npm run drop-test-db; jasmine-node test/server; npm run drop-test-db",
+    "drop-test-db": "mongo makers-achievements-test --eval 'db.dropDatabase()'",
     "postinstall": "bower install"
   },
   "repository": {
@@ -34,12 +35,19 @@
     "kerberos": "0.0.18",
     "mongoose": "^4.3.7",
     "morgan": "^1.6.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0",
     "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
     "frisby": "^0.8.5",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-express": "^1.4.1",
     "grunt-express-server": "^0.5.1",
     "grunt-karma": "^0.12.1",
+    "grunt-mongo-bin": "^0.1.0",
+    "grunt-parallel": "^0.4.1",
     "grunt-protractor-runner": "^3.0.0",
     "grunt-protractor-webdriver": "^0.2.5",
     "jasmine-core": "^2.4.1",
