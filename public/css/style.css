@@ -65,46 +65,36 @@ form h2{
   margin-bottom: 40px;
 }
 
-form input{
- margin-bottom: 20px;
- border: none;
+input[type="text"], input[type="password"], textarea {
+  outline: none;
+  box-shadow:none !important;
+  border: none;
 }
 
-form input[type='submit']{
- margin: 10px 0 30px;
- background-color: #e9e9e9;
+input.form-control{
+  background: transparent;
+  margin-bottom: 20px;
+  border-radius: 0px;
+  border-bottom: 1px solid #ccc;
 }
 
-.btn-file {
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 20px;
-    border: none;
-    background-color: #e9e9e9;
-
+button[type='submit']{
+  background: #e9e9e9;
+  margin: 20px 0 30px;
+  border: none;
+  border-radius: 0px;
+  color: #4b4f54;
+  font-weight: 600;
 }
 
-.btn-file input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 100px;
-    text-align: right;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    outline: none;
-    background: white;
-    cursor: inherit;
-    display: block;
+button[type='submit']:hover{
+  background: #ccc;
+  border-radius: 0px;
+  color: #4b4f54;
 }
 
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-   outline: none;
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 500px #fafafa inset !important;
 }
 
 .alert{
@@ -138,8 +128,8 @@ nav {
   font-size:14px;
   padding: 24px 7px;
 }
-.nav > li > a:hover{
-  background: none;
+.nav > li > a:hover, .nav > li > a:focus, .nav > li > a:visited{
+  background: white;
 }
 .navbar-brand {
     background: url('../images/netstix.png') no-repeat center center;
