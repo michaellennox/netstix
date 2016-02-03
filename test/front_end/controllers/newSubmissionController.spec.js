@@ -24,7 +24,7 @@ describe('NewSubmissionController', function() {
     it('redirects to /#/achievements/:id', function() {
       ctrl.createNewSubmission();
       scope.$digest();
-      expect(windowMock.location.href).toEqual('/#/achievements/:id');
+      expect(windowMock.location.href).toEqual('/#/achievements/' + id);
     });
   });
 });

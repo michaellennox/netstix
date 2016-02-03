@@ -5,7 +5,7 @@ netstix.controller('NewSubmissionController', ['PostSubmissions', '$window', '$r
   self.createNewSubmission = function() {
     PostSubmissions.sendData(self.link, self.comment, self.id)
       .then(function() {
-        $window.location.href = ('/#/achievements' + self.id);
+        $window.location.href = ('/#/achievements/' + self.id);
      });
   };
 
