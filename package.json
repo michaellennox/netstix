@@ -42,8 +42,12 @@
   },
   "devDependencies": {
     "frisby": "^0.8.5",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-express": "^1.4.1",
     "grunt-express-server": "^0.5.1",
     "grunt-karma": "^0.12.1",
+    "grunt-mongo-bin": "^0.1.0",
+    "grunt-parallel": "^0.4.1",
     "grunt-protractor-runner": "^3.0.0",
     "grunt-protractor-webdriver": "^0.2.5",
     "jasmine-core": "^2.4.1",

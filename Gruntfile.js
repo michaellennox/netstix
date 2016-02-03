@@ -1,13 +1,25 @@
+var path = require('path');
+
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    mongobin: {
+      options: {
+        host: 'localhost',
+        port: '27017',
+        db: 'makers-achievements-test'
+      }
+    },
     express: {
       options: {
-          port:8080,
-          script: 'app.js'
+        port: process.env.PORT || 8080,
+        hostname: 'localhost'
+      },
+      test: {
+        options: {
+          server: path.resolve('./app')
         },
-      run: {
-        }
+      }
     },
     karma: {
       options: {
@@ -18,7 +30,8 @@ module.exports = function(grunt) {
     },
     protractor: {
       options: {
-        configFile: './test/e2e/conf.js'
+        configFile: './test/e2e/conf.js',
+        keepAlive: true
       },
       run: {
       }
@@ -33,11 +46,12 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-express-server');
+  grunt.loadNpmTasks('grunt-mongo-bin');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-express');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-protractor-runner');
   grunt.loadNpmTasks('grunt-protractor-webdriver');
-
-  grunt.registerTask('e2e', ['express', 'protractor_webdriver', 'protractor']);
+  grunt.registerTask('e2e', ['express:test', 'protractor_webdriver', 'protractor']);
 
 };
