@@ -15,9 +15,9 @@ router.post('/', function(req, res) {
       }
       passport.authenticate('local')(req, res, function() {
         return res.status(200).json({ status: 'Registration successful!' });
-      })
+      });
     }
-  )
+  );
 });
 
 module.exports = router;

@@ -14,7 +14,7 @@ router.post('/', function(req, res) {
     }
     req.logIn(user, function(err) {
       if(err) {
-        return res.status(500).json({ err: 'Could not log in user' })
+        return res.status(500).json({ err: 'Could not log in user' });
       }
       res.status(200).json({ status: 'Login successful!' });
     });
@@ -23,7 +23,7 @@ router.post('/', function(req, res) {
 
 router.delete('/', function(req, res) {
   req.logout();
-  res.status(200).json({ status: 'Signed out successfully!' })
+  res.status(200).json({ status: 'Signed out successfully!' });
 });
 
 module.exports = router;
