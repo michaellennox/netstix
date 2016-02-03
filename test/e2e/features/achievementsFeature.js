@@ -43,7 +43,7 @@ describe('Achievements Features', function() {
     viewAchievementLink.click();
 
     var achievementTitle = element(by.binding('achievement.title'));
-    var achievementCriteria = element(by.binding('achievement.critera'));
+    var achievementCriteria = element(by.binding('achievement.criteria'));
 
     expect(browser.getCurrentUrl()).toContain('#/achievements/');
     expect(achievementTitle.getText()).toEqual('Create an achievement for the app');
