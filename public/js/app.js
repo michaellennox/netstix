@@ -22,6 +22,9 @@ netstix.config(['$routeProvider',
       .when('/users/:id', {
         templateUrl: '../views/partials/users/user.html'
       })
+      .when('/achievements/:id/submissions/new', {
+        templateUrl: '../views/partials/submissions/new.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
