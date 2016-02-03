@@ -1,7 +1,7 @@
 <div class="container" ng-controller="AchievementsController as ctrl">
   <header>
     <h1>achievements</h1>
-    <a href="#/achievements/new" class="pull-right" title="Create a new achievement"><i class="glyphicon glyphicon-plus"></i>Create a new achievement</a>
+    <a href="#/achievements/new" class="pull-right" ng-show="ctrl.isLoggedIn()" title="Create a new achievement"><i class="glyphicon glyphicon-plus"></i>Create a new achievement</a>
   </header>
   <ul class="items-result list-group" ng-show="ctrl.achievements.length">
     <li class="list-group-item" ng-repeat="achievement in ctrl.achievements">
