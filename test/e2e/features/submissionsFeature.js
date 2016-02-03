@@ -53,16 +53,16 @@ describe('Submissions Features', function() {
     expect(browser.getCurrentUrl()).toContain('/submissions/new');
 
     var submissionLinkInput = element(by.css('input[name="link"]'));
-    var submissionCommentInput = element(by.css('input[name="comment"]'));
+    var submissionCommentInput = element(by.css('textarea[name="comment"]'));
     var newSubmissionForm = element(by.css('form'));
 
     submissionLinkInput.sendKeys('A link to the relevant code or example');
     submissionCommentInput.sendKeys('A comment about the submission');
-    newSubmissionForm.click();
+    newSubmissionForm.submit();
 
     var achievementSubmissionsList = element.all(by.repeater('submissions in ctrl.submissions'));
 
-    expect(browser.getCurrentUrl()).toContain('/achievements/:id');
+    expect(browser.getCurrentUrl()).toContain('/achievements/');
     expect(achievementSubmissionsList.count()).toEqual(1);
     expect(achievementSubmissionsList.get(0).getText()).toEqual('test user');
   });
