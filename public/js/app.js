@@ -3,9 +3,9 @@ var netstix = angular.module('Netstix', ['ngResource', 'ngRoute']);
 netstix.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider
-      // .when('/', {
-      //   templateUrl: '../views/partials/leaderboard.html'
-      // })
+      .when('/', {
+        templateUrl: '../views/partials/users/leaderboard.html'
+      })
       .when('/achievements/', {
         templateUrl: '../views/partials/achievements/index.html'
       })
