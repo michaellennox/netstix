@@ -11,7 +11,8 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var index = require('./app/routes/index');
 var achievements = require('./app/routes/achievements');
-// var users = require('./app/routes/users');
+var users = require('./app/routes/users');
+var sessions = require('./app/routes/sessions');
 
 var app = express();
 
@@ -32,7 +33,8 @@ app.use(passport.session());
 // routing config
 app.use('/', index);
 app.use('/achievements', achievements);
-// app.use('/users', users);
+app.use('/users', users);
+app.use('/sessions', sessions);
 
 // passport config
 var User = require('./app/models/user');

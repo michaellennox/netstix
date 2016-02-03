@@ -4,6 +4,7 @@ var router = express.Router();
 var Achievement = require('../models/achievement');
 
 router.get('/', function(req, res) {
+  console.log(req.user);
   Achievement.find(function(err, achievements) {
     if(err) {
       res.send(err);
