@@ -27,12 +27,19 @@ router.post('/', function(req, res) {
 });
 
 router.get('/:id', function(req, res) {
-  Achievement.findById(req.params.id, function(err, achievement) {
-    if(err) {
-      res.send(err);
-    }
-    res.json(achievement);
-  });
+  Achievement.findById(req.params.id)
+    .populate({
+      path: 'submissions',
+      populate: {
+        path: 'user'
+      }
+    })
+    .exec(function(err, achievement) {
+      if(err) {
+        res.send(err);
+      }
+      res.json(achievement);
+    });
 });
 
 router.use('/:id/submissions', submissions);
