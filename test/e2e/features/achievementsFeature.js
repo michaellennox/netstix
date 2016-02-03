@@ -13,7 +13,7 @@ afterEach(function() {
 });
 
 describe('Achievements Features', function() {
-  it('a user is able to create a new achievement', function() {
+  it('a user can create an achievement, view a list of achievements then view a specific achievement', function() {
     browser.get('http://localhost:8080/#/achievements');
 
     var achievementsList = element.all(by.repeater('achievement in ctrl.achievements'));
@@ -37,5 +37,16 @@ describe('Achievements Features', function() {
     expect(achievementsList.count()).toEqual(1);
     expect(browser.getCurrentUrl()).toContain('#/achievements');
     expect(achievementsList.get(0).getText()).toEqual('Create an achievement for the app');
+
+    var viewAchievementLink = achievementsList.get(0).element(by.css('a[href*="#/achievements/"]'));
+
+    viewAchievementLink.click();
+
+    var achievementTitle = element(by.binding('achievement.title'));
+    var achievementCriteria = element(by.binding('achievement.critera'));
+
+    expect(browser.getCurrentUrl()).toContain('#/achievements/');
+    expect(achievementTitle.getText()).toEqual('Create an achievement for the app');
+    expect(achievementCriteria.getText()).toEqual('This is where a user should write criteria');
   });
 });
