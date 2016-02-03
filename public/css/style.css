@@ -65,14 +65,14 @@ form h2{
   margin-bottom: 40px;
 }
 
-input[type="text"], input[type="password"], textarea {
+input[type="text"], input[type="password"], input[type="url"], textarea {
   outline: none;
   box-shadow:none !important;
   border: none;
 }
 
-input.form-control{
-  background: transparent;
+input.form-control, textarea{
+  background: #fafafa;
   margin-bottom: 20px;
   border-radius: 0px;
   border-bottom: 1px solid #ccc;
