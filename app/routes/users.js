@@ -20,4 +20,29 @@ router.post('/', function(req, res) {
   );
 });
 
+router.get('/', function(req, res) {
+  User.find(function(err, users) {
+    if(err) {
+      res.send(err);
+    }
+    res.json(users);
+  });
+});
+
+router.get('/:id', function(req, res) {
+  User.findById(req.params.id)
+    .populate({
+      path: 'submissions',
+      populate: {
+        path: 'achievement'
+      }
+    })
+    .exec(function(err, user) {
+      if(err) {
+        res.send(err);
+      }
+      res.json(user);
+    });
+});
+
 module.exports = router;
