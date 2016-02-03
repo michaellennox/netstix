@@ -4,6 +4,7 @@ describe('NewSubmissionController', function() {
   var scope;
   var PostSubmissionsFactoryMock;
   var windowMock;
+  var idMock;
 
   beforeEach(function() {
     windowMock = { location: { href: jasmine.createSpy() } };
@@ -21,10 +22,11 @@ describe('NewSubmissionController', function() {
   }));
 
   describe('#createNewSubmission()', function() {
-    it('redirects to /#/achievements/:id', function() {
+    it('redirects to /#/achievements/:id when successful', function() {
+      ctrl.id = 55;
       ctrl.createNewSubmission();
       scope.$digest();
-      expect(windowMock.location.href).toEqual('/#/achievements/' + id);
+      expect(windowMock.location.href).toEqual('/#/achievements/55');
     });
   });
 });
