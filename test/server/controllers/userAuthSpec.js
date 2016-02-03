@@ -21,25 +21,25 @@ frisby.create('api call to create user')
       })
 
       .after(function() {
-        frisby.create('a valid user can sign in')
+        frisby.create('an invalid user cannot sign in')
           .post(URL + 'sessions', {
-            username: 'testuser1',
-            password: 'password1'
+            username: 'invaliduser',
+            password: 'notpassword'
           })
-          .expectStatus(200)
-          .expectJSON({
-            status: 'Login successful!'
-          })
+          .expectStatus(401)
 
-          .after(function(done) {
-            mongoose.connect('mongodb://localhost/makers-achievements-test', function() {
-              mongoose.connection.db.dropDatabase(function() {
-                mongoose.connection.close(function() {
-                  done();
-                });
-              });
-            });
-          })
+          .after(function() {
+            frisby.create('a valid user can sign in')
+              .post(URL + 'sessions', {
+                username: 'testuser1',
+                password: 'password1'
+              })
+              .expectStatus(200)
+              .expectJSON({
+                status: 'Login successful!'
+              })
+              .toss();
+            })
         .toss();
       })
     .toss();
