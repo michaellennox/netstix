@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var submissions = require('./submissions');
 
 var Achievement = require('../models/achievement');
 
@@ -33,5 +34,7 @@ router.get('/:id', function(req, res) {
     res.json(achievement);
   });
 });
+
+router.use('/:id/submissions', submissions);
 
 module.exports = router;
