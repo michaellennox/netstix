@@ -43,7 +43,7 @@ describe('User Authentication', function() {
 
     signOutButton.click();
 
-    var statusNotification = element(by.css('.alert-success'))
+    var statusNotification = element(by.css('.alert-success'));
 
     expect(statusNotification.getText()).toEqual('Signed out successfully!');
     expect(browser.getCurrentUrl()).toContain('#/achievements');
@@ -63,5 +63,5 @@ describe('User Authentication', function() {
     expect(signUpLink.isDisplayed()).toBeFalsy();
     expect(signInLink.isDisplayed()).toBeFalsy();
     expect(signOutButton.isDisplayed()).toBeTruthy();
-  })
-})
+  });
+});
