@@ -60,10 +60,10 @@ describe('Submissions Features', function() {
     submissionCommentInput.sendKeys('A comment about the submission');
     newSubmissionForm.submit();
 
-    var achievementSubmissionsList = element.all(by.repeater('submissions in ctrl.submissions'));
+    var achievementSubmissionsList = element.all(by.repeater('submission in ctrl.achievement.submissions'));
 
     expect(browser.getCurrentUrl()).toContain('/achievements/');
-    // expect(achievementSubmissionsList.count()).toEqual(1);
-    // expect(achievementSubmissionsList.get(0).getText()).toEqual('test user');
+    expect(achievementSubmissionsList.count()).toEqual(1);
+    expect(achievementSubmissionsList.get(0).getText()).toEqual('test user');
   });
 });

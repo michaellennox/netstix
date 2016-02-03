@@ -7,14 +7,11 @@
     <p>{{ctrl.achievement.criteria}}</p>
   </section>
   <header>
-    <h1>leaderboard</h1>
+    <h1>Rockstars</h1>
   </header>
   <ul class="items-result list-group">
-    <li class="list-group-item">
-      <i class="glyphicon glyphicon-user"></i><a href="">username 1</a>
-    </li>
-    <li class="list-group-item">
-      <i class="glyphicon glyphicon-user"></i><a href="">username 2</a>
+    <li class="list-group-item" ng-repeat="submission in ctrl.achievement.submissions">
+      <i class="glyphicon glyphicon-user"></i><a href="/#/users/{{submission.user._id}}">{{submission.user.username}}</a>
     </li>
   </ul>
 </div>
