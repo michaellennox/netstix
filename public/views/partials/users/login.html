@@ -1,19 +1,16 @@
-<div class="col-md-4" ng-controller="LoginController as ctrl">
-  <h1>Login</h2>
-  <div ng-show="error" class="alert alert-danger">
-    {{errorMessage}}
+<div class="col-md-offset-3 col-md-4" ng-controller="LoginController as ctrl">
+    <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+    <form class="form" ng-submit="ctrl.login()">
+      <h2>login</h2>
+      <div class="form-group">
+        <input type="text" class="form-control" name="username" placeholder="username" ng-model="loginForm.username" autocomplete="off" required>
+      </div>
+      <div class="form-group">
+          <input type="password" class="form-control" name="password" placeholder="password" ng-model="loginForm.password" autocomplete="off" required>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-default" ng-disabled="disabled">Login</button>
+        </div>
+    </form>
   </div>
-  <form class="form" ng-submit="ctrl.login()">
-    <div class="form-group">
-      <label>Username</label>
-      <input type="text" class="form-control" name="username" ng-model="loginForm.username" required>
-    </div>
-    <div class="form-group">
-      <label>Password</label>
-        <input type="password" class="form-control" name="password" ng-model="loginForm.password" required>
-      </div>
-      <div>
-        <button type="submit" class="btn btn-default" ng-disabled="disabled">Login</button>
-      </div>
-  </form>
 </div>
