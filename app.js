@@ -1,28 +1,21 @@
 var express = require('express');
 var path = require('path');
+var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-// var mongoose = require('mongoose');
+var mongoose = require('mongoose');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 var index = require('./app/routes/index');
 var achievements = require('./app/routes/achievements');
+// var users = require('./app/routes/users');
 
 var app = express();
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(
-  function(req, res, next){
-    if (req.url === '/favicon.ico') {
-        res.writeHead(200, {'Content-Type': 'image/x-icon'} );
-        res.end(/* icon content here */);
-    } else {
-        next();
-    }
-}
-);
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -33,9 +26,19 @@ app.use(require('express-session')({
    resave: false,
    saveUninitialized: false
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 
+// routing config
 app.use('/', index);
 app.use('/achievements', achievements);
+// app.use('/users', users);
+
+// passport config
+var User = require('./app/models/user');
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
