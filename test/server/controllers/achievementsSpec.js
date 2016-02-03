@@ -3,12 +3,13 @@ var mongoose = require('mongoose');
 
 var URL = 'http://localhost:8080/achievements/';
 
-frisby.create('api call to add an achievement, read the list of achievements, then view the specific achievement')
+frisby.create('api call to add an achievement')
   .post(URL, {
     title:     'Bug Hunter',
     criteria:  'Find an error in the Makers Academy materials'
   })
   .expectStatus(200)
+  .expectHeaderContains('content-type', 'application/json; charset=utf-8')
 
   .after(function() {
     frisby.create('view list of achievements')
@@ -29,16 +30,6 @@ frisby.create('api call to add an achievement, read the list of achievements, th
           .expectJSON({
             title: 'Bug Hunter',
             criteria: 'Find an error in the Makers Academy materials'
-          })
-
-          .after(function(done) {
-            mongoose.connect('mongodb://localhost/makers-achievements-test', function() {
-              mongoose.connection.db.dropDatabase(function() {
-                mongoose.connection.close(function() {
-                  done();
-                });
-              });
-            });
           })
         .toss();
       })
