@@ -46,7 +46,7 @@ describe('Submissions Features', function() {
 
     viewAchievementLink.click();
 
-    var createSubmissionLink = element(by.css('a[href*="#/achievements/:id/submissions/new"]'));
+    var createSubmissionLink = element(by.css('a[href*="/submissions/new"]'));
 
     createSubmissionLink.click();
 
