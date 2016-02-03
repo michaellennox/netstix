@@ -12,8 +12,9 @@ afterEach(function() {
   });
 });
 
-describe('Achievements Features', function() {
-  it('a user can create an achievement, view a list of achievements then view a specific achievement', function() {
+describe('Submissions Features', function() {
+  it('a user can make a submission for a specific achievement', function() {
+
     browser.get('http://localhost:8080/#/achievements');
 
     var signUpLink = element(by.css('a[href*="#/register"]'));
@@ -28,15 +29,9 @@ describe('Achievements Features', function() {
     passwordInput.sendKeys('epicpassword');
     signUpForm.submit();
 
-    var achievementsList = element.all(by.repeater('achievement in ctrl.achievements'));
-
-    expect(achievementsList.count()).toEqual(0);
-
     var createAchievementLink = element(by.css('a[href*="#/achievements/new"]'));
 
     createAchievementLink.click();
-
-    expect(browser.getCurrentUrl()).toContain('#/achievements/new');
 
     var achievementTitleInput = element(by.css('input[name="title"]'));
     var achievementCriteriaInput = element(by.css('input[name="criteria"]'));
@@ -46,19 +41,29 @@ describe('Achievements Features', function() {
     achievementCriteriaInput.sendKeys('This is where a user should write criteria');
     newAchievementForm.submit();
 
-    expect(achievementsList.count()).toEqual(1);
-    expect(browser.getCurrentUrl()).toContain('#/achievements');
-    expect(achievementsList.get(0).getText()).toEqual('Create an achievement for the app');
-
+    var achievementsList = element.all(by.repeater('achievement in ctrl.achievements'));
     var viewAchievementLink = achievementsList.get(0).element(by.css('a[href*="#/achievements/"]'));
 
     viewAchievementLink.click();
 
-    var achievementTitle = element(by.binding('achievement.title'));
-    var achievementCriteria = element(by.binding('achievement.criteria'));
+    var createSubmissionLink = element(by.css('a[href*="/submissions/new"]'));
 
-    expect(browser.getCurrentUrl()).toContain('#/achievements/');
-    expect(achievementTitle.getText()).toEqual('Create an achievement for the app');
-    expect(achievementCriteria.getText()).toEqual('This is where a user should write criteria');
+    createSubmissionLink.click();
+
+    expect(browser.getCurrentUrl()).toContain('/submissions/new');
+
+    var submissionLinkInput = element(by.css('input[name="link"]'));
+    var submissionCommentInput = element(by.css('textarea[name="comment"]'));
+    var newSubmissionForm = element(by.css('form'));
+
+    submissionLinkInput.sendKeys('A link to the relevant code or example');
+    submissionCommentInput.sendKeys('A comment about the submission');
+    newSubmissionForm.submit();
+
+    var achievementSubmissionsList = element.all(by.repeater('submission in ctrl.achievement.submissions'));
+
+    expect(browser.getCurrentUrl()).toContain('/achievements/');
+    expect(achievementSubmissionsList.count()).toEqual(1);
+    expect(achievementSubmissionsList.get(0).getText()).toEqual('test user');
   });
 });

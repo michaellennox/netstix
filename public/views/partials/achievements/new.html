@@ -3,10 +3,10 @@
     <form class="form" ng-submit="ctrl.createNewAchievement()">
       <h2>create achievement</h2>
       <div class="form-group">
-        <input type="text" class="form-control" name="title" placeholder="Title" ng-model="ctrl.title" required>
+        <input type="text" class="form-control" name="title" placeholder="title" ng-model="ctrl.title" autocomplete="off" required>
       </div>
       <div class="form-group">
-          <input type="text" class="form-control" name="criteria" placeholder="Criteria" ng-model="ctrl.criteria" required>
+          <input type="text" class="form-control" name="criteria" placeholder="criteria" ng-model="ctrl.criteria" autocomplete="off" required>
         </div>
         <div>
           <button type="submit" class="btn btn-default" ng-disabled="disabled">Create</button>
