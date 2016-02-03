@@ -12,7 +12,7 @@
     <title>Netstix</title>
 
     <link rel="stylesheet" href="../libs/bootstrap/dist/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <link rel="stylesheet" href="../css/style.css">
 
     <script src="../libs/jquery/dist/jquery.min.js"></script>
     <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -38,6 +38,7 @@
   </head>
 
   <body>
-    <ng-view></ng-view>
+    <ng-include src="'views/partials/navbar.html'"></ng-include>
+    <div ng-view class="content container"></div>
   </body>
 </html>

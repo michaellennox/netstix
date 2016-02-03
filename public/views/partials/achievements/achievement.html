@@ -1,14 +1,20 @@
-<div class="container" ng-controller="AchievementController as ctrl">
-  <div class="row">
-    <div class="col-md-3 col-md-offset-1 well">
-      <h2>{{ctrl.achievement.title}}</h2>
-    </div>
-  </div>
-
-  <div class="row">
-    <div>
-      <h3>Criteria:</h3>
-      <p>{{ctrl.achievement.criteria}}</p>
-    </div>
-  </div>
+<div class="container achievement row" ng-controller="AchievementController as ctrl">
+  <div class="container achievement row" ng-controller="AchievementController as ctrl">
+  <header>
+    <h1>{{ctrl.achievement.title}}</h1><a href="/#/achievements/{{ctrl.achievement._id}}/submission/new"class="pull-right"><i class="glyphicon glyphicon-download-alt"></i> Submit</a>
+  </header>
+  <section class="description">
+    <p>{{ctrl.achievement.criteria}}</p>
+  </section>
+  <header>
+    <h1>leaderboard</h1>
+  </header>
+  <ul class="items-result list-group">
+    <li class="list-group-item">
+      <i class="glyphicon glyphicon-user"></i><a href="">username 1</a>
+    </li>
+    <li class="list-group-item">
+      <i class="glyphicon glyphicon-user"></i><a href="">username 2</a>
+    </li>
+  </ul>
 </div>
