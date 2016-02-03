@@ -4,14 +4,14 @@
       <a href="/" class="navbar-brand">Netstix</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right" ng-controller="logoutController as ctrl">
+      <ul class="nav navbar-nav navbar-right" ng-controller="LogoutController as ctrl">
           <li ng-hide="ctrl.isLoggedIn()"><a href="/#/login">Login</a></li>
           <li ng-hide="ctrl.isLoggedIn()"><a href="/#/register">Register</a></li>
           <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">username</a>
           <ul class="dropdown-menu">
             <li><a href="/#/achievements">Achievements</a></li>
-            <li ng-show="ctrl.isLoggedIn()"><button ng-click="ctrl.logout()" class="btn btn-link">Logout</button></li>
+            <li ng-show="ctrl.isLoggedIn()"><button ng-click="ctrl.logout()" class="btn btn-link btn-logout">Logout</button></li>
           </ul>
         </li>
       </ul>
