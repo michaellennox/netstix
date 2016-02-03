@@ -17,8 +17,6 @@ netstix.config(['$routeProvider',
       })
       .when('/login', {
         templateUrl: '../views/partials/users/login.html'})
-      .when('/logout', {
-        controller: 'logoutController'})
       .when('/register', {
         templateUrl: '../views/partials/users/register.html'})
       .otherwise({
