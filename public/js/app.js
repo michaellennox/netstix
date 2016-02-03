@@ -15,6 +15,12 @@ netstix.config(['$routeProvider',
       .when('/achievements/:id', {
         templateUrl: '../views/partials/achievements/achievement.html'
       })
+      .when('/login', {
+        templateUrl: '../views/partials/users/login.html'})
+      .when('/logout', {
+        controller: 'logoutController'})
+      .when('/register', {
+        templateUrl: '../views/partials/users/register.html'})
       .otherwise({
         redirectTo: '/'
       });
