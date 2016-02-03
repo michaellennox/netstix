@@ -12,27 +12,27 @@ router.post('/', function(req, res) {
 
   Achievement.findById(req.params.id, function(err, achievement) {
     if(err) {
-      res.send(err)
+      res.send(err);
     }
     submission.achievement = achievement.id;
     achievement.submissions.push(submission.id);
     achievement.save(function(err) {
       if(err) {
-        res.send(err)
+        res.send(err);
       }
       User.findById(req.user._id, function(err, user) {
         if(err) {
-          res.send(err)
+          res.send(err);
         }
         submission.user = user.id;
         user.submissions.push(submission.id);
         user.save(function(err) {
           if(err) {
-            res.send(err)
+            res.send(err);
           }
           submission.save(function(err) {
             if(err) {
-              res.send(err)
+              res.send(err);
             }
             res.json({ message: 'Submission created!' });
           });

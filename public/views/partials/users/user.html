@@ -10,11 +10,8 @@
     <h1>Trophy Cabinet</h1>
   </header>
   <ul class="items-result list-group">
-    <li class="list-group-item">
-      <i class="glyphicon glyphicon-education"></i><a href="">achievement 1</a>
-    </li>
-    <li class="list-group-item">
-      <i class="glyphicon glyphicon-education"></i><a href="">achievement 2</a>
+    <li class="list-group-item" ng-repeat="submission in ctrl.user.submissions">
+      <i class="glyphicon glyphicon-education"></i><a href="/#/achievements/{{submission.achievement._id}}">{{submission.achievement.title}}</a>
     </li>
   </ul>
 </div>
