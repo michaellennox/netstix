@@ -34,7 +34,7 @@ describe('Profiles/leaderboard Features', function() {
     createAchievementLink.click();
 
     var achievementTitleInput = element(by.css('input[name="title"]'));
-    var achievementCriteriaInput = element(by.css('input[name="criteria"]'));
+    var achievementCriteriaInput = element(by.css('textarea[name="criteria"]'));
     var newAchievementForm = element(by.css('form'));
 
     achievementTitleInput.sendKeys('Create an achievement for the app');
@@ -66,7 +66,7 @@ describe('Profiles/leaderboard Features', function() {
     expect(achievementSubmissionsList.count()).toEqual(1);
     expect(achievementSubmissionsList.get(0).getText()).toEqual('test user');
 
-    var viewLeaderboardLink = element(by.css('a[href*="#/"]'));
+    var viewLeaderboardLink = element(by.css('.navbar-brand'));
 
     viewLeaderboardLink.click();
 
@@ -76,7 +76,7 @@ describe('Profiles/leaderboard Features', function() {
     expect(leaderboardList.count()).toEqual(1);
     expect(leaderboardList.get(0).getText()).toContain('test user');
 
-    var viewProfileLink = element(by.css('a[href*="#/users/"]'));
+    var viewProfileLink = leaderboardList.get(0).element(by.css('a[href*="#/users/"]'));
 
     viewProfileLink.click();
 

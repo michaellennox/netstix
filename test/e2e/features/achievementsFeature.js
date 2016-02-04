@@ -39,7 +39,7 @@ describe('Achievements Features', function() {
     expect(browser.getCurrentUrl()).toContain('#/achievements/new');
 
     var achievementTitleInput = element(by.css('input[name="title"]'));
-    var achievementCriteriaInput = element(by.css('input[name="criteria"]'));
+    var achievementCriteriaInput = element(by.css('textarea[name="criteria"]'));
     var newAchievementForm = element(by.css('form'));
 
     achievementTitleInput.sendKeys('Create an achievement for the app');
