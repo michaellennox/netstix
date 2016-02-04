@@ -2,7 +2,7 @@ netstix.controller('NewAchievementController', ['PostAchievements', '$window', f
   var self = this;
 
   self.createNewAchievement = function() {
-    PostAchievements.sendData(self.title, self.criteria, self.points, self.badgeLink)
+    PostAchievements.sendData(self.title, self.criteria, self.points, self.challengeRepo, self.badgeLink)
       .then(function() {
         $window.location.href ='/#/achievements';
      });
