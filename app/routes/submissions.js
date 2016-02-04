@@ -24,6 +24,7 @@ router.post('/', function(req, res) {
         if(err) {
           res.send(err);
         }
+        user.score += achievement.points;
         submission.user = user.id;
         user.submissions.push(submission.id);
         user.save(function(err) {
