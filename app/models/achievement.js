@@ -5,6 +5,8 @@ var ObjectId = Schema.Types.ObjectId;
 var achievementSchema = new Schema({
   title       : String,
   criteria    : String,
+  points      : Number,
+  badgeLink   : String,
   submissions : [{ type: ObjectId, ref: 'Submission' }]
 });
 
