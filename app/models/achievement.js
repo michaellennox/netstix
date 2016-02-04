@@ -6,7 +6,7 @@ var achievementSchema = new Schema({
   title       : String,
   criteria    : String,
   points      : { type: Number, default: 0},
-  badgeLink   : String,
+  badgeLink   : { type: String, default: '/images/badges/nobadge.png' },
   submissions : [{ type: ObjectId, ref: 'Submission' }]
 });
 

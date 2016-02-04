@@ -16,7 +16,6 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
   var achievement = new Achievement();
-  req.body.badgeLink = typeof req.body.badgeLink !== 'undefined' ? req.body.badgeLink : '/images/badges/nobadge.png';
   achievement.title = req.body.title;
   achievement.criteria = req.body.criteria;
   achievement.points = req.body.points;
