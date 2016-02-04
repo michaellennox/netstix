@@ -1,9 +1,9 @@
 var passport = require('passport');
 var User = require('../models/user');
 
-var sessionsController = {};
+var controller = {};
 
-sessionsController.create = function(req, res) {
+controller.create = function(req, res) {
   passport.authenticate('local', function(err, user, info) {
     if(err) {
       return res.status(500).json({ err: err });
@@ -20,9 +20,9 @@ sessionsController.create = function(req, res) {
   })(req, res);
 };
 
-sessionsController.destroy = function(req, res) {
+controller.destroy = function(req, res) {
   req.logout();
   res.status(200).json({ status: 'Signed out successfully!' });
 };
 
-module.exports = sessionsController;
+module.exports = controller;

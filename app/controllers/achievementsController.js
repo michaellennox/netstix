@@ -1,8 +1,8 @@
 var Achievement = require('../models/achievement');
 
-var achievementsController = {};
+var controller = {};
 
-achievementsController.list = function(req, res) {
+controller.list = function(req, res) {
   console.log(req.user);
   Achievement.find(function(err, achievements) {
     if(err) {
@@ -12,7 +12,7 @@ achievementsController.list = function(req, res) {
   });
 };
 
-achievementsController.create = function(req, res) {
+controller.create = function(req, res) {
   var achievement = new Achievement();
   achievement.title = req.body.title;
   achievement.criteria = req.body.criteria;
@@ -26,7 +26,7 @@ achievementsController.create = function(req, res) {
   });
 };
 
-achievementsController.read = function(req, res) {
+controller.read = function(req, res) {
   Achievement.findById(req.params.id)
     .populate({
       path: 'submissions',
@@ -42,4 +42,4 @@ achievementsController.read = function(req, res) {
     });
 };
 
-module.exports = achievementsController;
+module.exports = controller;
