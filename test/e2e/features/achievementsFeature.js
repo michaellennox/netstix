@@ -29,6 +29,7 @@ describe('Achievements Features', function() {
     signUpForm.submit();
 
     var achievementsList = element.all(by.repeater('achievement in ctrl.achievements'));
+    var firstAchievementTitle = achievementsList.get(0).element(by.css('a'));
 
     expect(achievementsList.count()).toEqual(0);
 
@@ -48,7 +49,7 @@ describe('Achievements Features', function() {
 
     expect(achievementsList.count()).toEqual(1);
     expect(browser.getCurrentUrl()).toContain('#/achievements');
-    expect(achievementsList.get(0).getText()).toEqual('Create an achievement for the app');
+    expect(firstAchievementTitle.getText()).toEqual('Create an achievement for the app');
 
     var viewAchievementLink = achievementsList.get(0).element(by.css('a[href*="#/achievements/"]'));
 
