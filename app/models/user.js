@@ -7,7 +7,7 @@ var passportLocalMongoose = require('passport-local-mongoose');
 var userSchema = new Schema({
   username    : String,
   password    : String,
-  score       : Number,
+  score       : { type: Number, default: 0 },
   submissions : [{ type: ObjectId, ref: 'Submission' }]
 });
 
