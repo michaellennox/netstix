@@ -1,49 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var submissions = require('./submissions');
+var submissionsRouter = require('./submissionsRouter');
+var achievementsController = require('../controllers/achievementsController');
 
 var Achievement = require('../models/achievement');
 
-router.get('/', function(req, res) {
-  console.log(req.user);
-  Achievement.find(function(err, achievements) {
-    if(err) {
-      res.send(err);
-    }
-    res.json(achievements);
-  });
-});
+router.route('/').get(achievementsController.list).post(achievementsController.create);
 
-router.post('/', function(req, res) {
-  var achievement = new Achievement();
-  achievement.title = req.body.title;
-  achievement.criteria = req.body.criteria;
-  achievement.points = req.body.points;
-  achievement.badgeLink = req.body.badgeLink;
-  achievement.save(function(err) {
-    if(err) {
-      res.send(err);
-    }
-    res.json({ message: 'Achievement created!'});
-  });
-});
+router.route('/:id').get(achievementsController.read);
 
-router.get('/:id', function(req, res) {
-  Achievement.findById(req.params.id)
-    .populate({
-      path: 'submissions',
-      populate: {
-        path: 'user'
-      }
-    })
-    .exec(function(err, achievement) {
-      if(err) {
-        res.send(err);
-      }
-      res.json(achievement);
-    });
-});
-
-router.use('/:id/submissions', submissions);
+router.use('/:id/submissions', submissionsRouter);
 
 module.exports = router;
