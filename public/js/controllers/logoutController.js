@@ -13,4 +13,8 @@ netstix.controller('LogoutController', ['UserAuth', '$window', '$scope', functio
     console.log(UserAuth.isLoggedIn());
     return UserAuth.isLoggedIn();
   };
+
+  self.getUser = function() {
+    return UserAuth.getUserStatus();
+  };
 }]);

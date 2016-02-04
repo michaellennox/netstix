@@ -1,17 +1,18 @@
 <div class="container row" ng-controller="UserController as ctrl">
   <header>
     <h1>{{ctrl.user.username}}</h1>
-    <!-- <a href=""class="pull-right">Go somewhere</a> -->
+    <b class="pull-right">150 pts</b>
   </header>
-  <!-- <section class="description">
-    <p>nothing to say about the user </p>
-  </section> -->
+  <section class="description">
+    <p><b>#3</b> place <span class="pull-right"><b>#10</b> badges </span></p>
+  </section>
   <header>
-    <h1>Trophy Cabinet</h1>
+    <h2>trophy cabinet</h2>
   </header>
   <ul class="items-result list-group">
     <li class="list-group-item" ng-repeat="submission in ctrl.user.submissions">
       <i class="glyphicon glyphicon-education"></i><a href="/#/achievements/{{submission.achievement._id}}">{{submission.achievement.title}}</a>
+      <a class="pull-right" target="_blank" href="{{submission.link}}"><i class="glyphicon glyphicon-pencil"></i>&nbsp;solution</a>
     </li>
   </ul>
 </div>
