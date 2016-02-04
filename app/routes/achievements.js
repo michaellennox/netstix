@@ -18,6 +18,8 @@ router.post('/', function(req, res) {
   var achievement = new Achievement();
   achievement.title = req.body.title;
   achievement.criteria = req.body.criteria;
+  achievement.points = req.body.points;
+  achievement.badgeLink = req.body.badgeLink;
   achievement.save(function(err) {
     if(err) {
       res.send(err);
