@@ -18,6 +18,7 @@ controller.create = function(req, res) {
   achievement.criteria = req.body.criteria;
   achievement.points = req.body.points;
   achievement.badgeLink = req.body.badgeLink;
+  achievement.challengeRepo = req.body.challengeRepo;
   achievement.save(function(err) {
     if(err) {
       res.send(err);
