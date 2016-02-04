@@ -12,8 +12,8 @@ afterEach(function() {
   });
 });
 
-describe('Submissions Features', function() {
-  it('a user can make a submission for a specific achievement', function() {
+describe('Profiles/leaderboard Features', function() {
+  it('a user can see the leaderboard after submitting an achievement and view their own profile with individual achievements', function() {
 
     browser.get('http://localhost:8080/#/achievements');
 
@@ -65,5 +65,26 @@ describe('Submissions Features', function() {
     expect(browser.getCurrentUrl()).toContain('/achievements/');
     expect(achievementSubmissionsList.count()).toEqual(1);
     expect(achievementSubmissionsList.get(0).getText()).toEqual('test user');
+
+    var viewLeaderboardLink = element(by.css('.navbar-brand'));
+
+    viewLeaderboardLink.click();
+
+    var leaderboardList = element.all(by.repeater('user in ctrl.users'));
+
+    expect(browser.getCurrentUrl()).toContain('#/');
+    expect(leaderboardList.count()).toEqual(1);
+    expect(leaderboardList.get(0).getText()).toContain('test user');
+
+    var viewProfileLink = leaderboardList.get(0).element(by.css('a[href*="#/users/"]'));
+
+    viewProfileLink.click();
+
+    var trophyCabinetList = element.all(by.repeater('submission in ctrl.user.submissions'));
+
+    expect(browser.getCurrentUrl()).toContain('#/users/');
+    expect(trophyCabinetList.count()).toEqual(1);
+    expect(trophyCabinetList.get(0).getText()).toContain('Create an achievement for the app');
+
   });
 });
