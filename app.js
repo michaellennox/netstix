@@ -9,10 +9,10 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-var index = require('./app/routes/index');
-var achievements = require('./app/routes/achievements');
-var users = require('./app/routes/users');
-var sessions = require('./app/routes/sessions');
+var indexRouter = require('./app/routes/indexRouter');
+var achievementsRouter = require('./app/routes/achievementsRouter');
+var usersRouter = require('./app/routes/usersRouter');
+var sessionsRouter = require('./app/routes/sessionsRouter');
 
 var app = express();
 
@@ -34,10 +34,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // routing config
-app.use('/', index);
-app.use('/achievements', achievements);
-app.use('/users', users);
-app.use('/sessions', sessions);
+app.use('/', indexRouter);
+app.use('/achievements', achievementsRouter);
+app.use('/users', usersRouter);
+app.use('/sessions', sessionsRouter);
 
 // passport config
 var User = require('./app/models/user');
