@@ -1,10 +1,11 @@
 <div class="container" ng-controller="UsersController as ctrl">
   <header>
-    <h1>welcome to netstix</h1>
+    <h1>leaderboard</h1>
   </header>
   <ul class="items-result list-group" ng-show="ctrl.users.length">
     <li class="list-group-item" ng-repeat="user in ctrl.users">
       <i class="glyphicon glyphicon-user"></i><a href="#/users/{{user._id}}">{{user.username}}</a>
+      <span class="pull-right "><b>150 pts</b></span>
     </li>
   </ul>
 </div>

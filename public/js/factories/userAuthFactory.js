@@ -18,7 +18,7 @@ netstix.factory('UserAuth', ['$q', '$timeout', '$http', function ($q, $timeout, 
     $http.post('/sessions', {username: username, password: password})
       .success(function (data, status) {
         if(status === 200 && data.status){
-          user = true;
+          user = data.user;
           deferred.resolve();
         } else {
           user = false;
@@ -51,7 +51,7 @@ netstix.factory('UserAuth', ['$q', '$timeout', '$http', function ($q, $timeout, 
     $http.post('/users', {username: username, password: password})
       .success(function (data, status) {
         if(status === 200 && data.status){
-          user = true;
+          user = data.user;
           deferred.resolve();
         } else {
           user = false;
