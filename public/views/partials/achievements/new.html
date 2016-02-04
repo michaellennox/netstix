@@ -6,11 +6,17 @@
         <input type="text" class="form-control" name="title" placeholder="title" ng-model="ctrl.title" autocomplete="off" required>
       </div>
       <div class="form-group">
-          <input type="text" class="form-control" name="criteria" placeholder="criteria" ng-model="ctrl.criteria" autocomplete="off" required>
-        </div>
-        <div>
-          <button type="submit" class="btn btn-default" ng-disabled="disabled">Create</button>
-        </div>
+        <input type="number" class="form-control" name="points" placeholder="points" ng-model="ctrl.points" autocomplete="off" min="10" max="100" required>
+      </div>
+      <div class="form-group">
+        <input type="url" class="form-control" name="badgeLink" placeholder="badge link (optional)" ng-model="ctrl.badgeLink" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <textarea rows="5" class="form-control" name="criteria" placeholder="criteria" ng-model="ctrl.criteria" autocomplete="off" required></textarea>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-default" ng-disabled="disabled">Create</button>
+      </div>
     </form>
   </div>
 </div>
