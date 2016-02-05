@@ -1,25 +1,26 @@
 <div class="container achievement row" ng-controller="AchievementController as ctrl">
   <header>
     <h1>{{ctrl.achievement.title}}</h1>
-    <a href="/#/achievements/{{ctrl.achievement._id}}/submissions/new" class="pull-right" ng-show="ctrl.isLoggedIn()"><i class="glyphicon glyphicon-download-alt"></i> Submit</a>
+    <a href="/#/achievements/{{ctrl.achievement._id}}/submissions/new" class="hidden-xs pull-right" ng-show="ctrl.isLoggedIn()"><i class="glyphicon glyphicon-download-alt"></i> Submit</a>
   </header>
   <section class="description row">
-    <section class="criteria col-md-7">
+    <section class="col-xs-12 criteria col-md-7">
       <h3>criteria</h3>
       <p>{{ctrl.achievement.criteria}}</p>
       <p ng-show="ctrl.achievement.challengeRepo"><a href="{{ctrl.achievement.challengeRepo}}" target="blank">challenge details</a></p>
       <p><b>#{{ctrl.achievement.points}} points</b></p>
     </section>
-    <figure class="col-md-offset-2 col-md-3">
+    <figure class="col-xs-12 col-md-offset-2 col-md-3">
       <img class="pull-right" src="{{ctrl.achievement.badgeLink}}" width="100px" height="100px"/>
     </figure>
   </section>
+  <a href="/#/achievements/{{ctrl.achievement._id}}/submissions/new" class="hidden-md" ng-show="ctrl.isLoggedIn()"><i class="glyphicon glyphicon-download-alt"></i> Submit</a>
   <header>
     <h2>rockstars</h2>
   </header>
   <ul class="items-result list-group">
     <li class="list-group-item" ng-repeat="submission in ctrl.achievement.submissions">
-      <i class="glyphicon glyphicon-user"></i><a href="/#/users/{{submission.user._id}}">{{submission.user.username}}</a>
+      <i class="glyphicon glyphicon-user hidden-xs"></i><a href="/#/users/{{submission.user._id}}">{{submission.user.username}}</a>
     </li>
   </ul>
 </div>

@@ -1,12 +1,14 @@
-<div class="container" ng-controller="AchievementsController as ctrl">
+<div class="container achievements" ng-controller="AchievementsController as ctrl">
   <header>
     <h1>achievements</h1>
-    <a href="#/achievements/new" class="pull-right" ng-show="ctrl.isLoggedIn()" title="Create a new achievement"><i class="glyphicon glyphicon-plus"></i>Create a new achievement</a>
+    <a href="#/achievements/new" class="pull-right hidden-xs" ng-show="ctrl.isLoggedIn()" title="Create a new achievement"><i class="glyphicon glyphicon-plus"></i>Create a new achievement</a>
   </header>
   <ul class="items-result list-group" ng-show="ctrl.achievements.length">
     <li class="list-group-item" ng-repeat="achievement in ctrl.achievements">
-      <img src="{{achievement.badgeLink}}" width="50px" height="50px"/><a href="/#/achievements/{{achievement._id}}">{{achievement.title}}</a>
-      <span class="pull-right"><b>{{achievement.points}} pts</b></span>
+      <img src="{{achievement.badgeLink}}" width="50px" height="50px"/>
+      <a href="/#/achievements/{{achievement._id}}">{{achievement.title}}</a>
+      <span class="pull-right hidden-xs"><b>{{achievement.points}} pts</b></span>
     </li>
   </ul>
+  <a href="#/achievements/new" class="pull-right hidden-md" ng-show="ctrl.isLoggedIn()" title="Create a new achievement">Create a new achievement</a>
 </div>
