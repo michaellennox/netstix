@@ -1,8 +1,9 @@
-# NetStix - AKA Makers' Achievements - AKA We're Really Bad At Naming Things
-
+# ![Alt text](http://i.imgur.com/9ptL8yf.png, 'Netstix') [![Build Status](https://travis-ci.org/michaellennox/netstix.svg?branch=master)](https://travis-ci.org/michaellennox/netstix)
 An online achievement platform for tracking and displaying the brilliant things Makers students do.
 
 Initially inspired out of the Makers sticker system we have expanded the idea to be a fully interactive achievement system which allows users to keep track of any awesome things they do, create new achievements if they believe there is something other's should have a crack at and feel their competitive spirits rush as they race to the top of the leaderboard.
+
+![Alt text](http://i.imgur.com/7bfktU1.png, 'screenshot app')
 
 ## So What's Here?
 
@@ -30,10 +31,10 @@ __Client__
 
 ## Installation Instructions
 
-Heroku will come soon, honest. Htunny is trying to make it work.
+You can try the app remotely:
+>[https://netstix.herokuapp.com/](https://netstix.herokuapp.com/)
 
-But for now, you can play around with it locally! To do so, follow the following simple steps.
-
+or install it locally:<br>
 Clone down from github and cd into the directory
 
 ```
