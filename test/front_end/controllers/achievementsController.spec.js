@@ -4,22 +4,22 @@ describe('AchievementsController', function() {
   };
   var ctrl;
   var scope;
-  var GetAchievementsFactoryMock;
+  var AchievementsResourceFactoryMock;
 
   beforeEach(function() {
-    GetAchievementsFactoryMock = jasmine.createSpyObj('GetAchievements', ['getData']);
+    AchievementsResourceFactoryMock = jasmine.createSpyObj('AchievementsResource', ['getAchievements']);
     module('Netstix', {
-      GetAchievements: GetAchievementsFactoryMock
+      AchievementsResource: AchievementsResourceFactoryMock
     });
   });
 
   beforeEach(inject(function($controller, $q, $rootScope) {
-    GetAchievementsFactoryMock.getData.and.returnValue($q.when(response));
+    AchievementsResourceFactoryMock.getAchievements.and.returnValue($q.when(response));
     ctrl = $controller('AchievementsController');
     scope = $rootScope;
   }));
 
-  it('initializes with achievements from the GetAchievements Factory', function() {
+  it('initializes with achievements from the AchievementsResource Factory', function() {
     scope.$digest();
     expect(ctrl.achievements)
       .toEqual(response.data);

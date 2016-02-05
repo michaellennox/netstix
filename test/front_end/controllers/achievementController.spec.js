@@ -4,17 +4,17 @@ describe('AchievementController', function() {
   };
   var ctrl;
   var scope;
-  var GetAchievementFactoryMock;
+  var AchievementsResourceFactoryMock;
 
   beforeEach(function() {
-    GetAchievementFactoryMock = jasmine.createSpyObj('GetAchievement', ['getData']);
+    AchievementsResourceFactoryMock = jasmine.createSpyObj('AchievementsResource', ['getAchievement']);
     module('Netstix', {
-      GetAchievement: GetAchievementFactoryMock
+      AchievementsResource: AchievementsResourceFactoryMock
     });
   });
 
   beforeEach(inject(function($controller, $q, $rootScope) {
-    GetAchievementFactoryMock.getData.and.returnValue($q.when(response));
+    AchievementsResourceFactoryMock.getAchievement.and.returnValue($q.when(response));
     ctrl = $controller('AchievementController', { $routeParams: {id: '2'} });
     scope = $rootScope;
   }));

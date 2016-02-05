@@ -1,21 +1,23 @@
 describe('NewAchievementController', function() {
-  var response = { message: 'ok' };
   var ctrl;
   var scope;
-  var PostAchievementsFactoryMock;
+  var AchievementsResourceMock;
   var windowMock;
 
   beforeEach(function() {
     windowMock = { location: { href: jasmine.createSpy() } };
-    PostAchievementsFactoryMock = jasmine.createSpyObj('PostAchievements', ['sendData']);
+    AchievementsResourceMock = jasmine.createSpyObj(
+      'AchievementsResource', ['postAchievements']
+    );
     module('Netstix', {
-      PostAchievements: PostAchievementsFactoryMock,
+      AchievementsResource: AchievementsResourceMock,
       $window: windowMock
     });
   });
 
   beforeEach(inject(function($controller, $q, $rootScope) {
-    PostAchievementsFactoryMock.sendData.and.returnValue($q.when(response));
+    AchievementsResourceMock.postAchievements
+      .and.returnValue($q.when({}));
     ctrl = $controller('NewAchievementController');
     scope = $rootScope;
   }));

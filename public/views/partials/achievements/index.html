@@ -5,7 +5,7 @@
   </header>
   <ul class="items-result list-group" ng-show="ctrl.achievements.length">
     <li class="list-group-item" ng-repeat="achievement in ctrl.achievements">
-      <img src="{{achievement.badgeLink}}" width="50px" height="50px"/><a href="/#/achievements/{{achievement._id}}">{{achievement.title}}</a>
+      <img ng-src="{{achievement.badgeLink}}" width="50px" height="50px"/><a href="/#/achievements/{{achievement._id}}">{{achievement.title}}</a>
       <span class="pull-right"><b>{{achievement.points}} pts</b></span>
     </li>
   </ul>
