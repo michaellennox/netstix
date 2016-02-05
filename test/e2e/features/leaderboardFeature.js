@@ -29,7 +29,8 @@ describe('Profiles/leaderboard Features', function() {
     passwordInput.sendKeys('epicpassword');
     signUpForm.submit();
 
-    var createAchievementLink = element(by.css('a[href*="#/achievements/new"]'));
+    var header = element(by.css('header'));
+    var createAchievementLink = header.element(by.css('a[href*="#/achievements/new"]'));
 
     createAchievementLink.click();
 
