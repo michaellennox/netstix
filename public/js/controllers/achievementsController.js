@@ -1,8 +1,8 @@
-netstix.controller('AchievementsController', ['GetAchievements', 'UserAuth', function(GetAchievements, UserAuth) {
+netstix.controller('AchievementsController', ['AchievementsResource', 'UserAuth', function(AchievementsResource, UserAuth) {
   var self = this;
 
   self.init = function() {
-    GetAchievements.getData()
+    AchievementsResource.getAchievements()
      .then(function(response) {
        self.achievements = response.data;
      });
