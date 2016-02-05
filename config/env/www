@@ -13,10 +13,16 @@ var mongoose = require('mongoose');
  * Get port from environment and store in Express.
  */
 
-// mongoose config
-
 var port = normalizePort(process.env.PORT || '8080');
 app.set('port', port);
+
+mongoose.connect(process.env.MONGOLAB_URI, function(err, res) {
+  if(err) {
+    console.log('Error connecting to the database. ' + err);
+  } else {
+    console.log('Connected to Database: ' + process.env.MONGOLAB_URI);
+  }
+});
 
 /**
  * Create HTTP server.

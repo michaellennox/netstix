@@ -1,9 +1,9 @@
-netstix.controller('NewSubmissionController', ['PostSubmissions', '$window', '$routeParams', function(PostSubmissions, $window, $routeParams) {
+netstix.controller('NewSubmissionController', ['AchievementsResource', '$window', '$routeParams', function(AchievementsResource, $window, $routeParams) {
   var self = this;
   self.id = $routeParams.id;
 
   self.createNewSubmission = function() {
-    PostSubmissions.sendData(self.link, self.comment, self.id)
+    AchievementsResource.postSubmissions(self.link, self.comment, self.id)
       .then(function() {
         $window.location.href = ('/#/achievements/' + self.id);
      });

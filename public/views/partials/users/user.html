@@ -1,10 +1,10 @@
 <div class="container row user" ng-controller="UserController as ctrl">
   <header>
     <h1>{{ctrl.user.username}}</h1>
-    <b class="pull-right hidden-xs">{{ctrl.user.score}} pts</b>
+    <b class="pull-right hidden-xs hidden-sm">{{ctrl.user.score}} pts</b>
   </header>
   <section class="description">
-    <p><b>{{ctrl.user.score}}</b> pts</p>
+    <p class="hidden-md hidden-lg"><b>{{ctrl.user.score}}</b> pts</p>
     <p><b>#{{ctrl.user.submissions.length}}</b> badges</p>
   </section>
   <header>
@@ -12,8 +12,8 @@
   </header>
   <ul class="items-result list-group">
     <li class="list-group-item" ng-repeat="submission in ctrl.user.submissions">
-      <img src="{{submission.achievement.badgeLink}}" width="50px" height="50px"/><a href="/#/achievements/{{submission.achievement._id}}">{{submission.achievement.title}}</a>
-      <a class="pull-right hidden-xs" target="_blank" href="{{submission.link}}"><i class="glyphicon glyphicon-pencil"></i>&nbsp;solution</a>
+      <img ng-src="{{submission.achievement.badgeLink}}" width="50px" height="50px"/><a ng-href="/#/achievements/{{submission.achievement._id}}">{{submission.achievement.title}}</a>
+      <a class="pull-right hidden-xs hidden-sm" target="_blank" ng-href="{{submission.link}}"><i class="glyphicon glyphicon-pencil"></i>&nbsp;solution</a>
     </li>
   </ul>
 </div>
