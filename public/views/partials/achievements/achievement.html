@@ -1,7 +1,7 @@
 <div class="container achievement row" ng-controller="AchievementController as ctrl">
   <header>
     <h1>{{ctrl.achievement.title}}</h1>
-    <a ng-href="/#/achievements/{{ctrl.achievement._id}}/submissions/new" class="hidden-xs hidden-sm pull-right" ng-show="ctrl.isLoggedIn()"><i class="glyphicon glyphicon-download-alt"></i> Submit</a>
+    <a ng-href="/#/achievements/{{ctrl.achievement._id}}/submissions/new" class="hidden-xs  pull-right" ng-show="ctrl.isLoggedIn()"><i class="glyphicon glyphicon-download-alt"></i> Submit</a>
   </header>
   <section class="description row">
     <section class="col-xs-12 criteria col-md-7">
@@ -20,7 +20,7 @@
   </header>
   <ul class="items-result list-group">
     <li class="list-group-item" ng-repeat="submission in ctrl.achievement.submissions">
-      <i class="glyphicon glyphicon-user hidden-xs hidden-sm"></i><a ng-href="/#/users/{{submission.user._id}}">{{submission.user.username}}</a>
+      <i class="glyphicon glyphicon-user hidden-xs "></i><a ng-href="/#/users/{{submission.user._id}}">{{submission.user.username}}</a>
     </li>
   </ul>
 </div>
