@@ -129,6 +129,27 @@ nav {
   left: 0;
   border-bottom: 1px solid #edeeee;
 }
+
+.navbar{
+  margin-bottom: 0px;
+}
+
+.navbar-toggle:before{
+  content:"\e055";;
+  font-family:"Glyphicons Halflings";
+  line-height:1;
+  margin:10px;
+  display:inline-block;
+}
+.navbar-toggle{
+  margin-bottom: -16px;
+}
+
+.nav > li{
+  background-color: white;
+  padding-left: 10px;
+}
+
 .nav > li > a{
   font-size:14px;
   padding: 24px 7px;
@@ -143,6 +164,7 @@ nav {
     text-indent:-9999px;
     width:104px;
     margin-top: 21px;
+    margin-left: 10px;
 }
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus{
   background-color: white;
@@ -161,6 +183,18 @@ nav {
 .navbar-right .dropdown-menu{
   text-align: center;
   left: -50px
+}
+
+@media (max-width: 767px){
+  .navbar-nav{
+    position: absolute;
+    width: 100%;
+    text-align: left;
+    z-index: 9999;
+  }
+  .navbar-nav .open .dropdown-menu > li > a{
+    padding-left: 10px;
+  }
 }
 
 
