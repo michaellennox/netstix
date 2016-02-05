@@ -33,7 +33,8 @@ describe('Achievements Features', function() {
 
     expect(achievementsList.count()).toEqual(0);
 
-    var createAchievementLink = element(by.css('a[href*="#/achievements/new"]'));
+    var header = element(by.css('header'));
+    var createAchievementLink = header.element(by.css('a[href*="#/achievements/new"]'));
 
     createAchievementLink.click();
 
