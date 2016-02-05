@@ -185,19 +185,6 @@ nav {
   left: -50px
 }
 
-@media (max-width: 767px){
-  .navbar-nav{
-    position: absolute;
-    width: 100%;
-    text-align: left;
-    z-index: 9999;
-  }
-  .navbar-nav .open .dropdown-menu > li > a{
-    padding-left: 10px;
-  }
-}
-
-
 /* content */
 
 .content{
@@ -255,4 +242,28 @@ footer {
   position: relative;
 	margin-top: -80px;
 	clear:both;
+}
+
+
+/* mobile */
+
+@media (max-width: 767px){
+  .nav{
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+    background: white;
+    padding-bottom: 20px;
+  }
+  .nav > li > a {
+    padding: 7px 10px 7px 0;
+  }
+  .navbar-nav .open .dropdown-menu > li > a, .navbar-nav .open .dropdown-menu > li > button{
+    text-align: left;
+    display: block;
+    padding: 7px 10px 7px 0;
+  }
+  .content > div{
+    margin-top: 20px;
+  }
 }
