@@ -1,21 +1,31 @@
-<nav>
+<nav class="navbar" ng-controller="LogoutController as ctrl">
   <div class="container">
     <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       <a href="/#/" class="navbar-brand">Netstix</a>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right" ng-controller="LogoutController as ctrl">
-          <li ng-hide="ctrl.isLoggedIn()"><a href="/#/login">login</a></li>
-          <li ng-hide="ctrl.isLoggedIn()"><a href="/#/register">register</a></li>
-          <li ng-hide="ctrl.isLoggedIn()"><a href="/#/achievements">achievements</a></li>
-          <li class="dropdown">
-          <a ng-show="ctrl.isLoggedIn()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ctrl.getUser().username}}</a>
+    <div class="collapse navbar-collapse" uib-collapse="navCollapsed">
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-hide="ctrl.isLoggedIn()"><a ng-click="navCollapsed = !navCollapsed" href="/#/login">login</a></li>
+        <li ng-hide="ctrl.isLoggedIn()"><a ng-click="navCollapsed = !navCollapsed" href="/#/register">register</a></li>
+        <li ng-hide="ctrl.isLoggedIn()"><a ng-click="navCollapsed = !navCollapsed" href="/#/achievements">achievements</a></li>
+        <li class="dropdown hidden-xs ">
+          <a ng-show="ctrl.isLoggedIn()" class="dropdown-toggle hidden-xs " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ctrl.getUser().username}}</a>
           <ul class="dropdown-menu">
-            <li><a href="/#/achievements">get achievements</a></li>
-            <li><a href="/#/users/{{ctrl.getUser()._id}}">my achievements</a></li>
-            <li><button ng-click="ctrl.logout()" class="btn btn-link btn-logout">logout</button></li>
+            <li><a ng-click="navCollapsed = !navCollapsed" href="/#/achievements">get achievements</a></li>
+            <li><a ng-click="navCollapsed = !navCollapsed" href="/#/users/{{ctrl.getUser()._id}}">my achievements</a></li>
+            <li><button ng-click="ctrl.logout()" ng-click="navCollapsed = !navCollapsed" class="btn btn-link btn-logout">logout</button></li>
           </ul>
         </li>
+        <li class="hidden-md hidden-lg" ng-show="ctrl.isLoggedIn()"><a>{{ctrl.getUser().username}}</a></li>
+        <li class="hidden-md hidden-lg" ng-show="ctrl.isLoggedIn()"><a ng-click="navCollapsed = !navCollapsed" href="/#/achievements">get achievements</a></li>
+        <li class="hidden-md hidden-lg" ng-show="ctrl.isLoggedIn()"><a ng-click="navCollapsed = !navCollapsed" href="/#/users/{{ctrl.getUser()._id}}">my achievements</a></li>
+        <li class="hidden-md hidden-lg" ng-show="ctrl.isLoggedIn()"><button ng-click="ctrl.logout()" ng-click="navCollapsed = !navCollapsed" class="btn btn-link btn-logout">logout</button></li>
       </ul>
     </div>
   </div>
