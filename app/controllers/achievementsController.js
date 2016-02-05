@@ -3,7 +3,6 @@ var Achievement = require('../models/achievement');
 var controller = {};
 
 controller.list = function(req, res) {
-  console.log(req.user);
   Achievement.find(function(err, achievements) {
     if(err) {
       res.send(err);
