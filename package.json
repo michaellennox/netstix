@@ -10,7 +10,7 @@
     "update-webdriver": "./node_modules/protractor/bin/webdriver-manager update --standalone --chrome",
     "test-protractor": "npm run update-webdriver && protractor test/e2e/conf.js",
     "test-karma": "grunt karma",
-    "test-jasmine": "npm run drop-test-db; jasmine-node test/server; npm run drop-test-db",
+    "test-jasmine": "npm run drop-test-db; jasmine-node test/server/controllers/userAuthSpec.js; jasmine-node test/server/controllers/achievementsSpec.js; jasmine-node test/server/controllers/submissionsSpec.js; npm run drop-test-db",
     "drop-test-db": "mongo makers-achievements-test --eval 'db.dropDatabase()'",
     "postinstall": "bower install"
   },
