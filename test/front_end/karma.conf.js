@@ -9,6 +9,7 @@ module.exports = function(config) {
       '../public/libs/angular-resource/angular-resource.js',
       '../public/libs/angular-mocks/angular-mocks.js',
       '../public/libs/angular-bootstrap/ui-bootstrap.min.js',
+      '../public/libs/angular-loading-bar/build/loading-bar.min.js',
       '../public/js/**/*.js',
       './front_end/**/*.spec.js'
     ],
